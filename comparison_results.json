@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "title": "AWS Bedrock 경량 모델 비교 테스트",
+    "date": "2026-02-13",
+    "region": "us-east-1",
+    "max_tokens": 4096,
+    "total_tests": 5
+  },
+  "models": {
+    "haiku-4.5": {
+      "name": "Claude Haiku 4.5",
+      "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "pricing_per_1M_tokens": {
+        "input": 1.0,
+        "output": 5.0
+      }
+    },
+    "qwen-3.2": {
+      "name": "Qwen 3 32B",
+      "model_id": "qwen.qwen3-32b-v1:0",
+      "pricing_per_1M_tokens": {
+        "input": 0.5,
+        "output": 1.5
+      }
+    },
+    "nova-2-lite": {
+      "name": "Nova 2 Lite",
+      "model_id": "us.amazon.nova-2-lite-v1:0",
+      "pricing_per_1M_tokens": {
+        "input": 0.06,
+        "output": 0.24
+      }
+    },
+    "llama-3.2-11b": {
+      "name": "Llama 3.2 11B",
+      "model_id": "us.meta.llama3-2-11b-instruct-v1:0",
+      "pricing_per_1M_tokens": {
+        "input": 0.16,
+        "output": 0.16
+      }
+    },
+    "ministral-8b": {
+      "name": "Ministral 8B",
+      "model_id": "mistral.ministral-3-8b-instruct",
+      "pricing_per_1M_tokens": {
+        "input": 0.1,
+        "output": 0.1
+      }
+    }
+  },
+  "tests": [
+    {
+      "test_name": "Complex Reasoning",
+      "results": {
+        "haiku-4.5": {
+          "latency_s": 26.87,
+          "input_tokens": 287,
+          "output_tokens": 4096,
+          "cost_usd": 0.020767,
+          "response_chars": 10419
+        },
+        "qwen-3.2": {
+          "latency_s": 25.79,
+          "input_tokens": 213,
+          "output_tokens": 2299,
+          "cost_usd": 0.003555,
+          "response_chars": 4302
+        },
+        "nova-2-lite": {
+          "latency_s": 18.55,
+          "input_tokens": 214,
+          "output_tokens": 2585,
+          "cost_usd": 0.000633,
+          "response_chars": 5554
+        },
+        "llama-3.2-11b": {
+          "latency_s": 24.66,
+          "input_tokens": 175,
+          "output_tokens": 4096,
+          "cost_usd": 0.000683,
+          "response_chars": 20678
+        },
+        "ministral-8b": {
+          "latency_s": 13.19,
+          "input_tokens": 171,
+          "output_tokens": 3707,
+          "cost_usd": 0.000388,
+          "response_chars": 10112
+        }
+      },
+      "rankings": {
+        "fastest": "ministral-8b",
+        "cheapest": "ministral-8b"
+      }
+    },
+    {
+      "test_name": "Advanced Code Generation",
+      "results": {
+        "haiku-4.5": {
+          "latency_s": 24.63,
+          "input_tokens": 232,
+          "output_tokens": 4096,
+          "cost_usd": 0.020712,
+          "response_chars": 10696
+        },
+        "qwen-3.2": {
+          "latency_s": 13.55,
+          "input_tokens": 161,
+          "output_tokens": 1896,
+          "cost_usd": 0.002924,
+          "response_chars": 6188
+        },
+        "nova-2-lite": {
+          "latency_s": 9.73,
+          "input_tokens": 177,
+          "output_tokens": 1627,
+          "cost_usd": 0.000401,
+          "response_chars": 5798
+        },
+        "llama-3.2-11b": {
+          "latency_s": 24.13,
+          "input_tokens": 139,
+          "output_tokens": 4096,
+          "cost_usd": 0.000678,
+          "response_chars": 10320
+        },
+        "ministral-8b": {
+          "latency_s": 9.52,
+          "input_tokens": 142,
+          "output_tokens": 2652,
+          "cost_usd": 0.000279,
+          "response_chars": 10091
+        }
+      },
+      "rankings": {
+        "fastest": "ministral-8b",
+        "cheapest": "ministral-8b"
+      }
+    },
+    {
+      "test_name": "Multi-dimensional Analysis",
+      "results": {
+        "haiku-4.5": {
+          "latency_s": 33.37,
+          "input_tokens": 391,
+          "output_tokens": 4096,
+          "cost_usd": 0.020871,
+          "response_chars": 4884
+        },
+        "qwen-3.2": {
+          "latency_s": 27.03,
+          "input_tokens": 290,
+          "output_tokens": 2667,
+          "cost_usd": 0.004146,
+          "response_chars": 4253
+        },
+        "nova-2-lite": {
+          "latency_s": 25.64,
+          "input_tokens": 292,
+          "output_tokens": 4096,
+          "cost_usd": 0.001001,
+          "response_chars": 7257
+        },
+        "llama-3.2-11b": {
+          "latency_s": 24.53,
+          "input_tokens": 253,
+          "output_tokens": 4096,
+          "cost_usd": 0.000696,
+          "response_chars": 7938
+        },
+        "ministral-8b": {
+          "latency_s": 12.84,
+          "input_tokens": 244,
+          "output_tokens": 3612,
+          "cost_usd": 0.000386,
+          "response_chars": 7674
+        }
+      },
+      "rankings": {
+        "fastest": "ministral-8b",
+        "cheapest": "ministral-8b"
+      }
+    },
+    {
+      "test_name": "Technical Translation",
+      "results": {
+        "haiku-4.5": {
+          "latency_s": 4.62,
+          "input_tokens": 341,
+          "output_tokens": 265,
+          "cost_usd": 0.001666,
+          "response_chars": 956
+        },
+        "qwen-3.2": {
+          "latency_s": 1.07,
+          "input_tokens": 233,
+          "output_tokens": 101,
+          "cost_usd": 0.000268,
+          "response_chars": 586
+        },
+        "nova-2-lite": {
+          "latency_s": 4.12,
+          "input_tokens": 242,
+          "output_tokens": 488,
+          "cost_usd": 0.000132,
+          "response_chars": 1746
+        },
+        "llama-3.2-11b": {
+          "latency_s": 84.5,
+          "input_tokens": 201,
+          "output_tokens": 4096,
+          "cost_usd": 0.000688,
+          "response_chars": 9235
+        },
+        "ministral-8b": {
+          "latency_s": 1.29,
+          "input_tokens": 199,
+          "output_tokens": 180,
+          "cost_usd": 3.8e-05,
+          "response_chars": 915
+        }
+      },
+      "rankings": {
+        "fastest": "qwen-3.2",
+        "cheapest": "ministral-8b"
+      }
+    },
+    {
+      "test_name": "Technical Translation EN-KO",
+      "results": {
+        "haiku-4.5": {
+          "latency_s": 3.98,
+          "input_tokens": 210,
+          "output_tokens": 533,
+          "cost_usd": 0.002875,
+          "response_chars": 590
+        },
+        "qwen-3.2": {
+          "latency_s": 3.38,
+          "input_tokens": 187,
+          "output_tokens": 339,
+          "cost_usd": 0.000602,
+          "response_chars": 578
+        },
+        "nova-2-lite": {
+          "latency_s": 5.29,
+          "input_tokens": 216,
+          "output_tokens": 774,
+          "cost_usd": 0.000199,
+          "response_chars": 1515
+        },
+        "llama-3.2-11b": {
+          "latency_s": 55.45,
+          "input_tokens": 175,
+          "output_tokens": 4096,
+          "cost_usd": 0.000683,
+          "response_chars": 10897
+        },
+        "ministral-8b": {
+          "latency_s": 4.3,
+          "input_tokens": 183,
+          "output_tokens": 877,
+          "cost_usd": 0.000106,
+          "response_chars": 1881
+        }
+      },
+      "rankings": {
+        "fastest": "qwen-3.2",
+        "cheapest": "ministral-8b"
+      }
+    }
+  ],
+  "summary": {
+    "average_per_model": {
+      "haiku-4.5": {
+        "avg_latency_s": 18.7,
+        "total_cost_usd": 0.066891,
+        "avg_tokens": 2909
+      },
+      "qwen-3.2": {
+        "avg_latency_s": 14.16,
+        "total_cost_usd": 0.011495,
+        "avg_tokens": 1677
+      },
+      "nova-2-lite": {
+        "avg_latency_s": 12.67,
+        "total_cost_usd": 0.002365,
+        "avg_tokens": 2142
+      },
+      "llama-3.2-11b": {
+        "avg_latency_s": 42.66,
+        "total_cost_usd": 0.003428,
+        "avg_tokens": 4285
+      },
+      "ministral-8b": {
+        "avg_latency_s": 8.23,
+        "total_cost_usd": 0.001197,
+        "avg_tokens": 2393
+      }
+    },
+    "rankings": {
+      "by_latency": [
+        {
+          "rank": 1,
+          "model": "Ministral 8B",
+          "avg_latency_s": 8.23
+        },
+        {
+          "rank": 2,
+          "model": "Nova 2 Lite",
+          "avg_latency_s": 12.67
+        },
+        {
+          "rank": 3,
+          "model": "Qwen 3 32B",
+          "avg_latency_s": 14.16
+        },
+        {
+          "rank": 4,
+          "model": "Claude Haiku 4.5",
+          "avg_latency_s": 18.7
+        },
+        {
+          "rank": 5,
+          "model": "Llama 3.2 11B",
+          "avg_latency_s": 42.66
+        }
+      ],
+      "by_cost": [
+        {
+          "rank": 1,
+          "model": "Ministral 8B",
+          "total_cost_usd": 0.001197
+        },
+        {
+          "rank": 2,
+          "model": "Nova 2 Lite",
+          "total_cost_usd": 0.002365
+        },
+        {
+          "rank": 3,
+          "model": "Llama 3.2 11B",
+          "total_cost_usd": 0.003428
+        },
+        {
+          "rank": 4,
+          "model": "Qwen 3 32B",
+          "total_cost_usd": 0.011495
+        },
+        {
+          "rank": 5,
+          "model": "Claude Haiku 4.5",
+          "total_cost_usd": 0.066891
+        }
+      ]
+    }
+  }
+}
