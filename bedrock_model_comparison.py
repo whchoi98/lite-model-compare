@@ -44,15 +44,15 @@ class BedrockModelComparison:
             'qwen-3.2': {
                 'id': 'qwen.qwen3-32b-v1:0',
                 'name': 'Qwen 3 32B',
-                'input_price': 0.50,
-                'output_price': 1.50,
+                'input_price': 0.15,
+                'output_price': 0.60,
                 'format': 'qwen'
             },
             'nova-2-lite': {
                 'id': 'us.amazon.nova-2-lite-v1:0',
                 'name': 'Nova 2 Lite',
-                'input_price': 0.06,
-                'output_price': 0.24,
+                'input_price': 0.30,
+                'output_price': 2.50,
                 'format': 'nova'
             },
             'llama-3.2-11b': {
@@ -65,8 +65,8 @@ class BedrockModelComparison:
             'ministral-8b': {
                 'id': 'mistral.ministral-3-8b-instruct',
                 'name': 'Ministral 8B',
-                'input_price': 0.10,
-                'output_price': 0.10,
+                'input_price': 0.15,
+                'output_price': 0.15,
                 'format': 'mistral'
             }
         }
