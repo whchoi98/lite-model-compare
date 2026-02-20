@@ -634,28 +634,28 @@ cardinality of collected telemetry data against storage costs and query performa
     ]
     
     # 각 테스트 실행 후 비교 결과 출력 (테스트 간 1초 대기)
-    # Complex Reasoning 결과는 별도 보관하여 품질 평가에 사용
+    # 모든 테스트 결과를 보관하여 품질 평가에 사용
     # Run each test, print comparison, and wait 1s between tests
-    # Keep Complex Reasoning result for quality evaluation
-    complex_reasoning_result = None
+    # Keep all test results for quality evaluation
+    test_results = []
 
     for test_case in test_cases:
         result = comparison.run_test(test_case['prompt'], test_case['name'])
         comparison.compare_results(result)
-        if test_case['name'] == 'Complex Reasoning':
-            complex_reasoning_result = result
+        test_results.append(result)
         time.sleep(1)
 
-    # Complex Reasoning 결과를 Opus 4.6으로 품질 평가 후 별도 JSON 저장
-    # Evaluate Complex Reasoning with Opus 4.6 and save as separate JSON
-    if complex_reasoning_result:
+    # 전체 테스트 결과를 Opus 4.6으로 품질 평가 후 별도 JSON 저장
+    # Evaluate all test results with Opus 4.6 and save as separate JSON files
+    for result in test_results:
+        test_name = result['test_name']
+        safe_name = test_name.lower().replace(' ', '_').replace('-', '_')
+        filename = f'{safe_name}_results.json'
         print(f"\n{'='*60}")
-        print("Opus 4.6 Quality Evaluation (Complex Reasoning)")
+        print(f"Opus 4.6 Quality Evaluation ({test_name})")
         print(f"{'='*60}")
-        evaluations = comparison.evaluate_quality(complex_reasoning_result)
-        comparison.save_test_detail(
-            complex_reasoning_result, evaluations, 'complex_reasoning_results.json'
-        )
+        evaluations = comparison.evaluate_quality(result)
+        comparison.save_test_detail(result, evaluations, filename)
 
     # 전체 요약 출력 / Print overall summary
     comparison.print_summary()

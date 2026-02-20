@@ -4,5 +4,8 @@ __pycache__/
 .env
 comparison_results_run*.json
 complex_reasoning_results_run*.json
-aggregate_results.py
+advanced_code_generation_results_run*.json
+multi_dimensional_analysis_results_run*.json
+technical_translation_results_run*.json
+technical_translation_en_ko_results_run*.json
 aggregated_results.json
